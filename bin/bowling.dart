@@ -63,7 +63,14 @@ class Game {
   }
   
   String toString() {
-    return log;
+    String string = log;
+    if (cFrame < 10) {
+      for (int i = cFrame + 1; i < 10; i++) {
+        string += "-- ";
+      }
+      string += "--- =";
+    }
+    return string;
   }
 }
 
@@ -156,7 +163,7 @@ void main() {
                       ..roll(8)
                       ..roll(0)
                       ..roll(0)
-                      ..roll(9)).toString(), "12 3/ 4/ 5- X 8- -9 ", reason: "Game log should be correct");
+                      ..roll(9)).toString(), "12 3/ 4/ 5- X 8- -9 -- -- --- =", reason: "Game log should be correct");
     });
 }
 
